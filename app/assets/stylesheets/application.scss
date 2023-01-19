@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ @import "bulma";
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bulma";
+@import "bootstrap";
+
+body {
+    background-color: rgba(10, 10, 91, 0.9);
+    height: 100vh;
+    color: wheat;
+    margin: 0 20px 0 20px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-style: italic;
+    font-size: small;
+
+}
+
+#nav_collapse {
+    
+}
+
+
+#navbarNav {
+    width: 30vw;
+    color: rgb(49, 0, 128);
+    position:absolute;
+    right: 0;
+
+}
+
+

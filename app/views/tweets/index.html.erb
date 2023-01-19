@@ -1,0 +1,11 @@
+<h1>Tweets#index</h1>
+
+<div class="container">
+<% @tweets.each do |item| %>
+
+<h4>
+ <%=item.tweeet%> </h4>
+<%=  link_to "Show", tweet_path(item) %>
+<% end %>
+</div>
+<%=  link_to "New", new_tweet_path %>

@@ -1,0 +1,6 @@
+<h3> show tweet</h3>
+<p>
+<%=@tweet.tweeet%>
+</p>
+<%= link_to "Edit", edit_tweet_path(@tweet)%>
+<%= button_to "Delete", @tweet,class:"button is-small is-danger", method:  :delete%>

@@ -1,0 +1,6 @@
+<%= form_with(model: @tweet) do |form|%>
+<%= form.label :Tweet,class:"form-label" %>
+<%= form.text_field :tweeet,class:"form-control"%>
+<%= button_to "Submit" , class:"button-is-primary"%>
+
+<%end%>
