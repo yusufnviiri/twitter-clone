@@ -1,2 +1,2 @@
 # twitter-clone
-This is a twitter look-like website with full functionality
+This is a twitter look-like website with full functionality implemented
