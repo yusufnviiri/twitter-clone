@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :find_tweet ,only: %i[show edit destroy update] 
   def index
     @tweets = Tweet.all
+    @tweet=Tweet.new
 end 
 def show
   @tweet=Tweet.find(params[:id])

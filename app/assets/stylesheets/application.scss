@@ -16,33 +16,59 @@
  */
 @import "bulma";
 @import "bootstrap";
+@import "font-awesome";
 
 body {
-    background-color: rgba(10, 10, 91, 0.9);
-    height: 100vh;
     color: wheat;
-    margin: 0 20px 0 20px;
+    
+}
+#del_btn{
+    color: red;
 }
 
+#tweet_btn >button{
+  background-color: blue;  
+  border: none;
+  color: white;
+  border-radius:10% ;
+
+  margin: 10px 20px 10px 20px;
+  justify-self:end;
+   
+}
+#del{
+border: none;
+background-color: white;
+}
 a {
-    color: white;
     text-decoration: none;
     font-style: italic;
     font-size: small;
-
 }
 
-#nav_collapse {
-    
-}
 
+.navbar-toggler span {
+    color: white;
+}
 
 #navbarNav {
-    width: 30vw;
+
     color: rgb(49, 0, 128);
-    position:absolute;
-    right: 0;
+    position: absolute;
+    right: 20px;
+    top: 5px;
 
 }
 
+.image {
+    border-radius: 40%;
 
+    img {
+        border-radius: 40%;
+
+    }
+}
+
+.navbar-brand {
+    color: white;
+}

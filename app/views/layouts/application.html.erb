@@ -11,9 +11,8 @@
   </head>
 
   <body>
-  <div class="container">
   <% if flash[:notice]%>
-  <div class="notification is-primary global-notification py-0">
+  <div class="notification is-primary global-notification py-0 my-0">
    <p class="notice my-0"><%= notice %></p>
    </div>
    <% end %>
@@ -26,22 +25,20 @@
 
 
 
- <nav class="navbar navbar-expand-lg navbar-primary bg-info py-0" >
+ <nav class="navbar navbar-expand-md navbar-primary bg-info py-0" >
   <div class="container-fluid  py-0 " id="nav_collapse">
-    <a class="navbar-brand" href="#">Twitter</a>
+  <%= link_to "Twitter", root_path, class:"navbar-brand"%>
     <div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     </div>
      <div class="navbar-collapse collapse  "  id="navbarNav" >
 
       <ul class="navbar-nav ">
+      
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-              <%= link_to "Tweet",new_tweet_path,class:"button is-info is-small is-inverted"%>
+              <%= link_to "Tweet",new_tweet_path,class:"button is-info is-small is-inverted mr-1"%>
 
         </li>
          <li class="nav-item">
@@ -57,6 +54,5 @@
 
 
     <%= yield %>
-    </div>
   </body>
 </html>

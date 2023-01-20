@@ -1,11 +1,16 @@
-<h1>Tweets#index</h1>
-
+<section class="section">
 <div class="container">
-<% @tweets.each do |item| %>
+<div class="columns">
+<%= render "tweets"%>
+<%= render "trends"%>
 
-<h4>
- <%=item.tweeet%> </h4>
-<%=  link_to "Show", tweet_path(item) %>
-<% end %>
+
+
 </div>
-<%=  link_to "New", new_tweet_path %>
+</div>
+</section>
+
+
+
+
+
