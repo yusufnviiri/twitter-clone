@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :find_tweet ,only: %i[show edit destroy update] 
+  before_action :authenticate_user!,except:[:show,:index]
   def index
     @tweets = Tweet.all
     @tweet=Tweet.new
