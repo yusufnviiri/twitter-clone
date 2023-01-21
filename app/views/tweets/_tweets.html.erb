@@ -6,7 +6,9 @@
   </p>
 </figure>
 <div class="media-content">
-<p> Hello <%= current_user.email%></p>
+<% if current_user%>
+<small> Hey <%= current_user.email%></small> <br/>
+<%end%>
 </div>
 
 </article>
@@ -28,7 +30,9 @@
 <div class="media-content">
 <div class="content">
 <strong> Andrew Carnergie</strong><br/>
+<% if current_user%>
 <small><%= current_user.email%></small> <br/>
+<%end%>
 <p class="mb-1">
  <%=item.tweeet%>
 </p>
