@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'd1d6cc0e0602f7a10057bbd19f6c7cc5b6bc75fd69c707533ef2d9238f0f16fd2dc8ef0f1bd9edaa725548c4470bda0dcabed1fef6e7cbd9903f35ea25e8a982'
+  # config.secret_key = 'a1af2aa39b96f1eda5fccdd634fc2d9320a504a6a66afe16d3ccb9a44b616dbf7591699952394a0a0ef109b8c8196f31572981c3f660f8e3d8f07202b745e9aa'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '8323c7f810fde65fab0bc4e2dab1a65fecd19560081960128b97be8c3a2d9a4090bd87f292406c6b66bc7f85bf03177db7a8bd8766f57fe17927ca44d5d692a0'
+  # config.pepper = '625f229ae596efa20453d3b914201db3029f28f9d95ba31b6e52cbeb8cd431190acc18ac3fd1f0e215bf3e63adcbbeb4a2281802315f78c8fcd0710a34d1a800'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -308,4 +308,48 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+  # Turbo doesn't work with devise by default.
+# Keep tabs on https://github.com/heartcombo/devise/issues/5446 for a possible fix
+# Fix from https://gorails.com/episodes/devise-hotwire-turbo
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
+end
+
+
+# ...
+Devise.setup do |config|
+  # ...
+  
+  # ==> Controller configuration
+  # Configure the parent class to the devise controllers.
+  config.parent_controller = 'TurboDeviseController'
+  
+  # ...
+
+  # ==> Navigation configuration
+  # ...
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
+
+  # ...
+
+  # ==> Warden configuration
+  # ...
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  #   manager.intercept_401 = false
+  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+  end
+  
+  # ...
+end
 end

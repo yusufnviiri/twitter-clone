@@ -20,21 +20,37 @@
 
 body {
     color: wheat;
+    background-color: steelblue;
     
 }
 #del_btn{
     color: red;
 }
+.tweets form{
+    display: flex;
+    flex-direction: column;   
+    align-items: flex-end;
+    border: 1px solid rgba(112, 110, 110, 0.3);
+}
+.form-control {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
 
-#tweet_btn >button{
-  background-color: blue;  
+#tweet_btn button{
+  background-color: rgb(142,205,247);  
   border: none;
   color: white;
-  border-radius:10% ;
-
-  margin: 10px 20px 10px 20px;
-  justify-self:end;
-   
+  font-weight: 500;
+  border-radius:33% ;
+  padding: 2px 15px 5px 15px;
+  margin: 5px 30px 5px 20px;   
+}
+.form-control::placeholder{
+    color:rgba(30, 27, 27, 0.4);
+    font-size: large;
 }
 #del{
 border: none;

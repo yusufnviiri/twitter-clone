@@ -6,7 +6,7 @@
   </p>
 </figure>
 <div class="media-content">
-<p> content</p>
+<p> Hello <%= current_user.email%></p>
 </div>
 
 </article>
@@ -28,7 +28,7 @@
 <div class="media-content">
 <div class="content">
 <strong> Andrew Carnergie</strong><br/>
-<small>@homestead.com</small> <br/>
+<small><%= current_user.email%></small> <br/>
 <p class="mb-1">
  <%=item.tweeet%>
 </p>
@@ -43,7 +43,7 @@
 <%= link_to  edit_tweet_path(item)  ,class:"level-item"  do %>
 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 <%end%>
-<%= button_to  item, method:  :delete,data:{confirm:"Are you sure you want to delete this tweet"} ,class:"level-item ",id:"del"  do %>
+<%= link_to  item, method:  :delete,data:{confirm:"Are you sure you want to delete this tweet"} ,class:"level-item ",id:"del"  do %>
 <i class="fa fa-trash-o  "  id="del_btn" aria-hidden="true"></i> <%end%>
 </div>
 

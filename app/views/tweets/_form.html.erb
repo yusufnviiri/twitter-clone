@@ -1,10 +1,10 @@
-
+<div class="tweets">
 <%= form_with(model: @tweet) do |form|%>
-<%= form.label :Tweet,class:"form-label" %>
-<%= form.text_field :tweeet,class:"form-control" ,placeholder:"Whats's happening there"%>
+<%= form.text_area :tweeet,class:"form-control" ,placeholder:"What's happening?"%>
 
 <div id="tweet_btn">
-<%= button_to "tweet" ,type:"submit"%>
+<%= button_to "Tweet" ,type:"submit"%>
 </div>
 
 <%end%>
+</div>

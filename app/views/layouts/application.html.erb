@@ -41,10 +41,22 @@
               <%= link_to "Tweet",new_tweet_path,class:"button is-info is-small is-inverted mr-1"%>
 
         </li>
+        <% if user_signed_in? %>
          <li class="nav-item">
-              <%= link_to "Sign-up",class:""%>
+              <%= link_to "Sign-out", destroy_user_session_path,method: :delete,class:""%>
 
         </li>
+        <% else %>
+            <li class="nav-item">
+              <%= link_to "Log in", new_user_session_path,class:"mr-2"%>
+
+        </li>
+          <li class="nav-item">
+              <%= link_to "Sign-up", new_user_registration_path,class:""%>
+
+        </li>
+
+        <% end %>
      
       </ul>
     </div>
