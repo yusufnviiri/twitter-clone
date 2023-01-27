@@ -18,11 +18,74 @@
 @import "bootstrap";
 @import "font-awesome";
 
-body {
-    color: wheat;
-    background-color: steelblue;
+// body {
+//     color: wheat;
+//     background-color: rgba(28, 15, 150,0.7);
+    
+// }
+.follow p{
+    width: 50%;
+    margin: auto;
+}
+.follow{
+    border-bottom: 1px solid rgb(41, 39, 39);
+    border-top: 1px solid rgb(41, 39, 39);
+
+}
+#user_details {
+width: 100%;
+margin: auto;    }
+#user_details p{
+font-size: 10px;
+}
+.menu_items{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+}
+
+#ellipse{
+     border: 2px solid rgb(75, 69, 69);
+     padding: 2px;
+     border-radius: 100%;
+}
+.menu_item{
+    list-style: none;
     
 }
+.menu_item a {
+    font-size:1.2em;
+    color: black;
+
+}
+.menu_item :hover{
+    background-color: rgb(159, 172, 186);
+    padding: 0.2em  0.3em  0.4em  0.3em ;
+border-radius: 25%;
+
+
+
+}
+
+
+#login_form{
+display: flex;
+flex-direction:column;
+width: 50%;
+margin: auto;
+
+}
+
+#btn_in,#btn_up{
+    width: 30%; 
+   
+    }
+    #btn_in,.controller{
+        margin-top: 1em; 
+        margin-bottom: 1em;  
+        }
+
 #del_btn{
     color: red;
 }
