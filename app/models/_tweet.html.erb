@@ -1,0 +1,36 @@
+<% @tweets.each do |item| %>
+<div class="box">
+<article class="media">
+<div class="media-left">
+<figure class="image is-64x64">
+<%= gravatar_image_tag(item.user.email,size:64,alt:item.user.username)%>
+  </figure>
+</div>
+<div class="media-content">
+<div class="content">
+<strong> Andrew Carnergie</strong><br/>
+<% if current_user%>
+<small><%= item.user.username%></small> <br/>
+
+<small><%= item.user.email%></small> <br/>
+<%end%>
+<p class="mb-1">
+ <%=item.tweeet%>
+</p>
+<nav class="level">
+<div class="level-left is-mobile">
+<% if user_signed_in?%>
+<% if current_user.username==item.user.username%>
+<%=  link_to  tweet_path(item),class:"level-item"  do %>
+<i class="fa fa-eye" aria-hidden="true"></i>
+
+<% end %>
+
+
+<%=  button_to  retweet_tweet_path(item) , method:  :post ,class:"level-item"  do %>
+<i class="fa fa-retweet" aria-hidden="true"></i><%end%>
+
+<%= link_to  item, method:  :delete,data:{confirm:"Are you sure you want to delete this tweet"} ,class:"level-item ",id:"del"  do %>
+<i class="fa fa-trash-o  "  id="del_btn" aria-hidden="true"></i> <%end%>
+<% end %>
+<%end%>

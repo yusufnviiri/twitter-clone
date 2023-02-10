@@ -5,12 +5,12 @@ ruby "3.1.2"
 gem 'better_errors', '~> 2.9', '>= 2.9.1' 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+gem 'hotwire-rails', '~> 0.1.3'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -26,9 +26,7 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -76,3 +74,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+

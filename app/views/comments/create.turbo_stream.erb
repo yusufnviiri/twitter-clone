@@ -1,0 +1,7 @@
+<%= turbo_stream.after "#{dom_id(@tweet)}_comments" do %>
+  <%= render "comment", comment: @comment %>
+<% end %>
+
+<%= turbo_stream.update "#{dom_id(@tweet)}_comment" do %>
+<%= render partial: "tweets/countComments", locals: {tweet:@tweet}  %>
+<% end %>

@@ -1,0 +1,41 @@
+
+<p> <%=  comment.body%></p>
+<nav class="level">
+<div class="level-left is-mobile">
+
+<%=  link_to tweet_comments_path(@tweet),class:"level-item"  do %>
+<i class="fa fa-commenting" aria-hidden="true">
+<div id="<%=dom_id @tweet%>_comment">
+<%= render partial: "tweets/countComments" ,locals:{tweet:@tweet}%>
+</div>
+</i><% end %>
+<%=  link_to root_path  ,class:"level-item"  do %>
+<i class="fa fa-retweet" aria-hidden="true">
+<%= render partial: "tweets/countComments" ,locals:{tweet:@tweet}%>
+
+</i><%end%>
+
+
+<%=  button_to  tweet_comment_likes_path(@tweet,comment) , method:  :post ,class:"level-item"  do %>
+<i class="fa fa-heart-o" aria-hidden="true" id="likes">
+<div id="<%=dom_id comment%>_like">
+<%= render partial:  "comments/likes", locals: { comment: comment }%>
+</div>
+
+</i>
+<%end%>
+
+
+
+<%=  link_to root_path  ,class:"level-item"  do %>
+<i class="fa fa-bar-chart" aria-hidden="true"></i>
+<%= render partial: "tweets/countComments" ,locals:{tweet:@tweet}%>
+
+</i><%end%>
+
+
+<%= link_to  tweet_comment_path(@tweet,comment), method:  :delete,data:{confirm:"Are you sure?"} ,class:"level-item ",id:"del"  do %>
+<i class="fa fa-trash-o  "  id="del_btn" aria-hidden="true"></i> <%end%>
+</div>
+</nav>
+

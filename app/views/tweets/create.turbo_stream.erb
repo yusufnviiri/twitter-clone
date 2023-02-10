@@ -1,0 +1,7 @@
+<%= turbo_stream.after "tweets" do %>
+  <%= render "tweet", tweet: @tweet %>
+<% end %>
+
+<%= turbo_stream.replace "#{dom_id(Tweet.new)}_form" do %>
+<%= render partial: "tweets/form" ,locals: {tweet:Tweet.new} %>
+<% end %>

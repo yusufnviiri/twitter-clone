@@ -1,0 +1,3 @@
+<%= turbo_stream.update "#{dom_id(@likable)}_like" do %>
+<%= render partial: "comments/likes", locals: {comment:@likable} %>
+<% end %>

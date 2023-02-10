@@ -1,0 +1,9 @@
+<h4>Tweet comments</h4>
+<%comments.each do |comment|%>
+<div id="<%=dom_id comment%>">
+
+
+<%= render "comments/comment",  comment: comment%>
+
+</div>
+<%end%>

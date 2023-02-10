@@ -1,0 +1,14 @@
+
+<%= form_with model: [tweet, @comment], data: {controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
+
+
+<%= form.text_field :tweet_id ,type:"hidden",value:params[:tweet_id]%>
+<%= form.text_field :user_id ,type:"hidden",value:current_user.id%>
+
+
+<%= form.text_field :body%>
+
+<%= form.submit "Reply"%>
+<%end%>
+
+

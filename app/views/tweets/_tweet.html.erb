@@ -1,0 +1,59 @@
+
+
+
+<%= turbo_stream_from "tweet"%>
+<%= turbo_frame_tag "tweet" do%>
+<div class="box">
+<article class="media">
+<div class="media-left">
+<figure class="image is-64x64">
+<%= gravatar_image_tag(tweet.user.email,size:64,alt:tweet.user.username)%>
+  </figure>
+</div>
+<div class="media-content">
+<div class="content">
+<strong> Andrew Carnergie</strong><br/>
+<small><%= tweet.user.username%></small> <br/>
+
+<small><%= tweet.user.email%></small> <br/>
+
+
+
+<p class="mb-1">
+ <%=tweet.tweeet%>
+</p>
+
+<nav class="level">
+<div class="level-left is-mobile">
+
+
+
+<%=  link_to  tweet_path(tweet),class:"level-item"  do %>
+<i class="fa fa-eye" aria-hidden="true"></i>
+<%end%>
+
+<%=  button_to  tweet_likes_path(tweet) , method:  :post ,class:"level-item"  do %>
+<i class="fa fa-heart-o" aria-hidden="true" id="likes">
+<div id="<%=dom_id tweet%>_like">
+<%= render partial:  "tweets/likes", locals: { tweet: tweet }%>
+</div>
+
+</i>
+<%end%>
+
+
+<%=  button_to  retweet_tweet_path(tweet) , method:  :post ,class:"level-item"  do %>
+<i class="fa fa-retweet" aria-hidden="true"></i><%end%>
+
+<%= link_to  tweet, method:  :delete,data:{confirm:"Are you sure?"} ,class:"level-item ",id:"del"  do %>
+<i class="fa fa-trash-o  "  id="del_btn" aria-hidden="true"></i> <%end%>
+
+</div>
+</nav>
+</div>
+</div>
+
+</article>
+</div>
+<% end %>
+

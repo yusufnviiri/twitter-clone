@@ -1,0 +1,63 @@
+<p class="level">
+<div class="level-left is-mobile">
+
+<%= link_to root_path ,class:"level-item" do%>
+<i class="fa fa-arrow-left" aria-hidden="true"></i>
+<%end%> 
+
+<%= link_to "Tweet", new_tweet_path , class:"level-item"%>
+</div>
+</p>
+
+      <%= render "comments/form", tweet: @tweet %>
+
+
+<p class="mb-1">
+ <%=tweet.tweeet%>
+</p>
+<nav class="level">
+<div class="level-left is-mobile">
+<% if user_signed_in?%>
+<% if current_user.username==tweet.user.username%>
+
+
+
+
+<%=  button_to  tweet_likes_path(tweet) , method:  :post ,class:"level-item"  do %>
+<i class="fa fa-heart-o" aria-hidden="true" id="likes">
+<div id="<%=dom_id tweet%>_like">
+<%= render partial:  "tweets/likes", locals: { tweet: tweet }%>
+</div>
+
+</i>
+<%end%>
+
+
+<%=  link_to  tweets_path,class:"level-item"  do %>
+<i class="fa fa-home" aria-hidden="true"></i><% end %>
+<%=  link_to  edit_tweet_path(tweet) ,class:"level-item" do %>
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+<%end%>
+
+
+<%=  link_to  tweet_path(tweet),class:"level-item"  do %>
+<i class="fa fa-commenting" aria-hidden="true">
+<div id="<%=dom_id tweet%>_comment">
+
+<%= render partial: "tweets/countComments" ,locals:{tweet:tweet}%>
+</div>
+</i><% end %>
+
+
+
+<%= link_to tweet  , method:  :delete,data:{confirm:"Are you sure you want to delete this tweet"} ,class:"level-item ",id:"del"  do %>
+<i class="fa fa-trash-o  "  id="del_btn" aria-hidden="true"></i> <%end%>
+<% end %>
+<%end%>
+
+</div>
+
+
+
+
+</nav>
